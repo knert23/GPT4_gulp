@@ -7,11 +7,21 @@
 
       const leftLowerContainerData = 
       {
-        src: "assets/img/logo.svg",
-        alt: "GPT-4",
-        adress: `26.357896, 127.783809
-        Okinawa, Japan. 
-                Все права защищены`
+        img: {
+          src: "assets/img/logo.svg",
+          alt: "GPT-4",
+        },
+        adress: {
+          coords: {
+            lat: 26.357896,
+            lon: 127.783809,
+          },
+          location: {
+            city: "Okinawa",
+            country: "Japan",
+          },
+          reservedRights: "Все права защищены",
+        },
       };
 
       const subHrefData = 

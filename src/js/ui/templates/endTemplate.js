@@ -12,6 +12,21 @@ export const upperContainerTemplate = ({header, cta, href}) =>
     `;
 } 
 
+export const leftLowerContainerAddressTemplate = ({ coords, location, reservedRights }) => {
+  return `<p class="end__adress">${coords.lat} ${coords.lon} ${location.city} ${location.country} ${reservedRights}</p>`;
+};
+
+export const leftLowerContainerTemplate = ({ img, adress }) => {
+  const adressTemplate = leftLowerContainerAddressTemplate(adress);
+  const image = `<img src="${img.src}" alt="${img.alt}" class="end__logo">`;
+  return `
+        <div class="lower__left">
+            ${image}
+            ${adressTemplate}
+        </div>  
+    `;
+};
+
 export const lowerContainerTemplate = ({leftLowerContainerData, rightLowerContainerData}) => 
 {
     const leftLowerTemplate = leftLowerContainerTemplate(leftLowerContainerData);
@@ -29,15 +44,6 @@ export const lowerContainerTemplate = ({leftLowerContainerData, rightLowerContai
     `
 }
 
-export const leftLowerContainerTemplate = ({src, alt, adress}) =>
-{
-    return `
-        <div class="lower__left">
-            <img src="${src}" alt="${alt}" class="end__logo">
-            <p class="end__adress">${adress}</p>
-          </div>
-    `
-}
 
 export const rightLowerContainerTemplate = ({ header, sub }) => {
     const subItems = sub.map(sub => `<a href="${sub.href}"><p>${sub.title}</p></a>`).join('');
